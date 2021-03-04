@@ -14,7 +14,7 @@
     - **Public parameters**: `[N, p, q, d] = [47, 3, 128, 7]`
     some other possible parameters choices according to NTRU protocol to ensure 1-1 encrypt-decrypt are:
             |  N  |  p  |  q  |  d  |
-            | :-: | :-: | :-: | :-: |
+            | :---: | :---: | :---: | :---: |
             |  5  |  3  |  64 |  1  |
             |  7  |  3  |  64 |  2  |
             | 11  |  3  |  64 |  3  |
