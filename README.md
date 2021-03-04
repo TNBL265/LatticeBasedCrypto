@@ -7,7 +7,7 @@
 - We then proceed to implement the NTRU Public Key Cryptosystem using Matlab and try to perform cryptanalysis (recover `private keys` given `public keys` and `public parameters`) on this system using Python.
 
 ## 2. Implementation:
-### a. [Research Poster]()
+### a. [Research Poster](Complementing_LLL_Lattice_Reduction_Algorithm_with_BIROT_to_find_SVPs.pdf)
 ### b. Cryptosystem
 - Based on [NTRUEncrypt protocol](https://en.wikipedia.org/wiki/NTRUEncrypt) and its detailed formulation in the textbook [An Introduction to Mathematical Cryptography](https://www.springer.com/gp/book/9781441926746), we were able to write a Matlab program (making used of Matlab's vectorization for faster encryption and decryption)that can simulate the full process of encoding, encrypting, decrypting and decoding a message:
     - **Message**: `m = "I love you!"`
@@ -34,20 +34,22 @@
         - the result is an `R x 32` ternary array where `R` is the total number of blocks required to encode `m`.
     - Encrypting:
         - using NTRUEncrypt protocol, we convert this array into completely random coefficients. Since we chose `N = 47` and NTRU is based on Polynomial Rings, the encrypted message will be in the form of a `n x 47` array (block size of 47). Below we show 2 completely random encryption after 2 run:
-            - Run 1:
+            - Run 1:<br>
                 ![](https://i.imgur.com/6vuwBzy.png)
-            - Run 2:
+            - Run 2:<br>
                 ![](https://i.imgur.com/9gS6cWT.png)
     - **Decrypting and Decoding**: If the encrypted message is passed back for decryption, we can easily convert back to the original post-encoded message. Then with the relevant block number information, we can reshape this back for decoding. 
     - **Example**: If you have Matlab installed, simply clone this repository and use the `cryptosystem` folder to try out the program. A screenshot will be shown below to show you the expected output of our program:
         - Choosing *messages*, *parameters* and generate `public_key` and `private_key`:
         ![](https://i.imgur.com/XiFUrsl.png)
-        - Encoding and Encrypting:
+            - Run 2: Complementing_LLL_Lattice_Reduction_Algorithm_with_BIROT_to_find_SVPs.pdf
+        - Encoding and Encrypting:<br>
         ![](https://i.imgur.com/AjBQuJF.png)
-        - Decrypting and Decoding:
+        - Decrypting and Decoding:<br>
         ![](https://i.imgur.com/WR1YTQG.png)
     
 ### c. Cryptanalysis:
-- Due to time constraint, we could not write a full Matlab script for cryptanalysis. Hence, we refered to a previously done python script for NTRUEncrypt by [jkrauze](https://github.com/jkrauze/ntru)in Python and build our attack using Python from there (codes in `cryptanalysis` folder).
-- We use a Latice Reduction Method called [Lenstra–Lenstra–Lovász](https://en.wikipedia.org/wiki/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz_lattice_basis_reduction_algorithm) (LLL) in combination with the idea in this master thesis on [Parallel Symmetric Attack]() by Daniel Socek
-- The main results are shown in our [research poster](). 
+- Due to time constraint, we could not write a full Matlab script for cryptanalysis. Hence, we refered to a previously done python script for NTRUEncrypt by [jkrauze](https://github.com/jkrauze/ntru)in Python and build our attack using Python from there (codes in [cryptanalysis](cryptanalysis) folder).
+- We use a Latice Reduction Method called [Lenstra–Lenstra–Lovász](https://en.wikipedia.org/wiki/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz_lattice_basis_reduction_algorithm) (LLL) in combination with the idea in this master thesis on [Parallel Symmetric Attack](Mater_Thesis.pdf
+) by Daniel Socek.
+- The main results are shown in our [research poster](Complementing_LLL_Lattice_Reduction_Algorithm_with_BIROT_to_find_SVPs.pdf). 
