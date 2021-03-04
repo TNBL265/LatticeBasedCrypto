@@ -12,7 +12,7 @@
 - Based on [NTRUEncrypt protocol](https://en.wikipedia.org/wiki/NTRUEncrypt) and its detailed formulation in the textbook [An Introduction to Mathematical Cryptography](https://www.springer.com/gp/book/9781441926746), we were able to write a Matlab program (making used of Matlab's vectorization for faster encryption and decryption)that can simulate the full process of encoding, encrypting, decrypting and decoding a message:
     - **Message**: `m = "I love you!"`
     - **Public parameters**: `[N, p, q, d] = [47, 3, 128, 7]`
-    some other possible parameters choices according to NTRU protocol to ensure 1-1 encrypt-decrypt are:
+    some other possible parameters choices according to NTRU protocol to ensure 1-1 encrypt-decrypt are:<br>
             |  N  |  p  |  q  |  d  |
             | :---: | :---: | :---: | :---: |
             |  5  |  3  |  64 |  1  |
@@ -24,7 +24,7 @@
             | 83  |  3  | 128 |  7  |
     - **Key Generation**: Generate `public_key` and `private_key` from the public parameters to be used for encryption and decryption. `public_key` will be used by Bob to encrypt the message while `private_key` will be used by Alice to decrypt the message (a form of *assymetric cryptography*)
     - **Encoding** (there can be more efficient protocol, we just find one that work for us so we can quickly try out the full encryption system): 
-        - first, we turn a string into its ASCII numeric values. Then, we add padding so all ASCII values are 3-letter long. If the very fist digit in the message is `0`, this information will be lost when we convert base 10 to base 3 number (encyprting purposes). In this case, we convert the very first `0` into `9` (No ASCII value will reach 900 so this can be easily converted back during decoding).
+        - first, we turn a string into its ASCII numeric values. Then, we add padding so all ASCII values are 3-letter long. If the very fist digit in the message is `0`, this information will be lost when we convert base 10 to base 3 number (encyprting purposes). In this case, we convert the very first `0` into `9` (No ASCII value will reach 900 so this can be easily converted back during decoding).<br>
             | Letter | ASCII (DEC) | Final (3 digits) |
             | :----: | :---------: | :--------------: |
             |    I   |     73      |        973       |
